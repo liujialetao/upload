@@ -1,0 +1,18 @@
+docker exec -it bc00991179f8 /bin/bash
+
+source /etc/profile
+HISTSIZE=1000
+export JAVA_HOME=/usr/local/jre1.8.0_342
+
+
+# 查询所有topics
+sh /opt/kafka-service/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 10.247.174.100:26328 --command-config /opt/kafka-service/kafka/config/consumer.properties --describe --all-groups
+
+# 查看指定topic
+sh /opt/kafka-service/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 10.247.174.100:26328 --group test(特定topic) --command-config /opt/kafka-service/kafka/config/consumer.properties --describe
+
+
+sh /opt/kafka-service/kafka/bin/kafka-consumer-groups.sh --bootstrap-server 10.247.174.100:26328 --group acs-ars --command-config /opt/kafka-service/kafka/config/consumer.properties --describe
+
+
+Allcam@2022

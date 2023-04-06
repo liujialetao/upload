@@ -1,0 +1,87 @@
+apifox设置信息 
+        {
+            "audioName": "101",
+            "audioCode": "101",
+            "channelType": null,
+            "status": 0,
+            "audioIndex": null,
+            "audioParam": {
+                "sampleRate": 8000,
+                "pitch": null,
+                "channel": null,
+                "volume": null,
+                "sampleBits": null,
+                "inputType": 0,
+                "gain": null,
+                "dataFormat": 2
+            }
+        }
+		
+		
+AudioInfo(audioName=101, audioCode=101, channelType=null, status=0, audioIndex=null, audioParam=AudioParam(sampleRate=8000, pitch=null, channel=null, volume=null, sampleBits=null, inputType=0, gain=null, dataFormat=2))]
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.common.system.rate.RateLimitAdvance  : access rate limit check begin
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.a.a.h.s.HwSdkDevicePuConfigScheduler : set audio req:JnaAudioStreamInfoResp: {"resultCode":0,"resultDesc":"SUCCESS",
+"audioChannelId":101,
+"enAudioEncodeMode":20,"inputVolume":0,"outputVolume":0,"audioRate":0,
+"inputType":0,
+"sampleRate":8000}
+
+public void setAudioInfo(AvsMainDevInfo mainDevInfo, AudioInfo audioInfo)
+{
+	JnaAudioStreamInfoResp resp = new JnaAudioStreamInfoResp();
+	if (audioInfo.getAudioParam() != null)
+	{
+		resp.setAudioChannelId(Integer.parseInt(audioInfo.getAudioCode()));
+		resp.setInputType(audioInfo.getAudioParam().getInputType());
+		resp.setSampleRate(audioInfo.getAudioParam().getSampleRate());
+		resp.setEnAudioEncodeMode(transSdkAudioDataFormat(audioInfo.getAudioParam().getDataFormat()));
+	}
+	log.debug("set audio req:{}",resp);
+	hwPuSDKBase.setAudioStreamInfo(loginId(mainDevInfo), resp);
+}
+
+
+2023-03-15 10:48:31.434  INFO 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : >>> Enter com.allcam.acs.avs.hwsdk.schedule.HwSdkDevicePuConfigScheduler.setAudioInfo
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : Parameters:[AvsMainDevInfo: {"mainDevId":"34020000001180000006","mainDevType":1,"mainDevStatus":null,"platId":null,"channelNum":1,"serverDomain":null,"accessIp":null,"accessPort":null,"protocol":3,"puIp":null,"puPort":null,"cameraList":null}, AudioInfo(audioName=101, audioCode=101, channelType=null, status=0, audioIndex=null, audioParam=AudioParam(sampleRate=8000, pitch=null, channel=null, volume=null, sampleBits=null, inputType=0, gain=null, dataFormat=2))]
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.common.system.rate.RateLimitAdvance  : access rate limit check begin
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.a.a.h.s.HwSdkDevicePuConfigScheduler : set audio req:JnaAudioStreamInfoResp: {"resultCode":0,"resultDesc":"SUCCESS","audioChannelId":101,"enAudioEncodeMode":20,"inputVolume":0,"outputVolume":0,"audioRate":0,"inputType":0,"sampleRate":8000}
+2023-03-15 10:48:31.434  INFO 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : >>> Enter com.allcam.acs.avs.hwsdk.service.device.HwSdkDeviceSelectServiceImpl.getDeviceLoginId
+2023-03-15 10:48:31.434 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : Parameters:[34020000001180000006]
+2023-03-15 10:48:31.436 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-15 10:48:31.436 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : Return:[1]
+2023-03-15 10:48:31.436  INFO 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.acs.avs.hwsdk.service.device.HwSdkDeviceSelectServiceImpl.getDeviceLoginId
+2023-03-15 10:48:31.537 ERROR 34996 --- [group1-2-thread-8] c.a.a.a.hwsdk.protocol.sdk.HWPuSDKBase   : set audio info fail
+2023-03-15 10:48:31.537 ERROR 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : business handle error: Invalid audio input type.
+2023-03-15 10:48:31.537  WARN 34996 --- [group1-2-thread-8] com.allcam.common.utils.AspectHelper     : getReturnObject class newInstance fail: void
+2023-03-15 10:48:31.538 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-15 10:48:31.538 DEBUG 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : Return:[null]
+2023-03-15 10:48:31.538  INFO 34996 --- [group1-2-thread-8] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.acs.avs.hwsdk.schedule.HwSdkDevicePuConfigScheduler.setAudioInfo
+2023-03-15 10:48:31.538 ERROR 34996 --- [group1-2-thread-8] o.a.s.c.h.impl.ProducerOperationHandler  : unexpected error operation=PRODUCER rest daghwsdk.DevicePuConfigScheduler.setAudioInfo, message=cause:InvocationTargetException,message:null;cause:TransferBusinessException,message:Invalid audio input type.
+2023-03-15 10:48:31.753  INFO 34996 --- [alarm-handler-1] c.a.a.a.hwsdk.alarm.AlarmReceiveHandler  : no reported alarm to handle.
+2023-03-15 10:48:32.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:33.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:33.754  INFO 34996 --- [alarm-handler-1] c.a.a.a.hwsdk.alarm.AlarmReceiveHandler  : no reported alarm to handle.
+2023-03-15 10:48:34.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:35.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:35.754  INFO 34996 --- [alarm-handler-1] c.a.a.a.hwsdk.alarm.AlarmReceiveHandler  : no reported alarm to handle.
+2023-03-15 10:48:36.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:36.002 DEBUG 34996 --- [interval-task-1] c.a.c.s.task.TaskThreadPoolExecutor      : put task to executor.
+2023-03-15 10:48:36.002 DEBUG 34996 --- [interval-task-1] c.a.c.s.task.TaskThreadPoolExecutor      : put task to executor.
+2023-03-15 10:48:36.002 DEBUG 34996 --- [pool-3-thread-1] c.a.c.system.DistributedTaskManager      : retry fail tasks Begin.
+2023-03-15 10:48:36.002 DEBUG 34996 --- [pool-3-thread-1] c.a.c.system.DistributedTaskManager      : retry fail tasks Finish.
+2023-03-15 10:48:36.002  INFO 34996 --- [pool-3-thread-2] c.a.c.system.cse.AvsServerListFilterExt  : expected instance group: null, endpoint: null
+2023-03-15 10:48:36.002  INFO 34996 --- [pool-3-thread-2] c.a.c.system.cse.AvsServerListFilterExt  : server endpoint: rest://192.168.0.57:10040
+2023-03-15 10:48:36.002  INFO 34996 --- [pool-3-thread-2] c.a.c.system.cse.AvsServerListFilterExt  : server group is
+2023-03-15 10:48:36.002  INFO 34996 --- [pool-3-thread-2] c.a.c.system.cse.AvsServerListFilterExt  : final server list: [rest://192.168.0.57:10040]
+2023-03-15 10:48:36.011  INFO 34996 --- [pool-3-thread-2] c.a.c.s.license.manage.LicenseManage     : LicenseManage updateLicense [Dl9Ux2shjw4jYRRFGRaCYaTfgpsqYlT6rwOhu7qzcFdpvuHvDwjHgNLG/9s/QtLksTqD240Qh0NEzib+apFp2Ibl1LfNP3zOYVBkXRomN7r/RR0If1aoMMPwGaubiBmkYE8iO2kDbTIttc8xKrvOKGJwJPo86WzeN4++zRqdyb0CpsQS/QeS2SGFJ2KqdJQnIDjKRbz8CU0bqG8UBHB15e1DVu1F7EEVHwwyXvJkvA3UfBMsg1otDQsgxB1j3LC3VF0XSXe7mmk3aMx0sZXwjYvOfP1KRxlP5OheD52SXAsCdeM4Gadd2EAh2QdVIKhNyaZ3VGaOmFGBoyAUp9CCinJn5GppXgvNotX6LyHRcMtidQU6FuffkRV1KkFdJin0JCw0wnyiC+InOZeTsKZ7GzTXVRwioGMHgfHYUlwI7g+IW1O6kSvBgbKS6XcVyifGX1WIKVclOO5k+bfo/PLXJ7t8/RvFNFeEtvUa9P/fvfcgyHVGHgD7G9M4LJ+4goe2nm/6AhxCsPlua8lesLBuskAzbC+zau8/ztRflBMmCa/sc1RrM9k6nZDLDskGdnQQowbOrmC4PEMJ2TWrKi9mFD543KDmQksol4r5kCJSx/zC2UlnUsi0HbMSSxJuWvIG1lY9rq4t5oEsXmls2X1bdipZHQmgEqIg4ciGczGRCamLT5yUjYt2H6+Jh4BVK//I1X9mScRZgk+yEv69aww1ywBpyJRDVk8iWmQwtEZq2AwxvtcbdpE19Tp04DBwhbKlYnB/xM7flIRrbZCuK3RzTsbvjbtMvU6xi/OzxUTB6QXHUuEMcMnGyEPK8VVE6sJnONPjvbcsXIWxrfXioiibRij0HvRwOVZzhMXIolonsZHXpkbW4+yKGPTAOftL8gmsekHA3Bi9fFofoi9vx74c2LlD8041YqcD4DAXUrSbmb8hZrx76C5J20822s+DRL7oJ5mg4jWoXOeTbgcet+xdqOl2J9bc5Zd39ulxBH0hTBfDpJu8asf6d/i0c3uJ+n5oAt+7wUgMaehsqGEC9Xqx1+raxI5JDAxob+2op2VTPD/6tPBfvY5yg8QniQbwdOamPjTj7rdx1rCZYMa3/vGjcCIzKg63RupmilAD25TNy02fPwsqx/9nE3wRR6jbxnCckGT8I+eAxFIgCy1FBsZGO7rwtOhop4yphLXamAbQ6Z4fk/XcdPiO4tIjVz08PyoXKbT4qiArsom1CCvtJiWJnwwCNwq3qh5MbDFFkrQLGs45WjOpeXopxzYOFbJAWPMUiURX7LtkARvV7sXPcy2BrL+gMoKpCDuC6Py5A0y4xQcjggHEeq9fKWZZD5BZ0GdrCC/p/p8OIUMvE0jy7InH1Bz2PFYAxHNGhVYWhvWfJlnO3ylDGLo+gBTPysyIIOFFs0Cxn93Nfl3EuAJBJqJZ7pf7viTYgPqe+fEONzp739xjzagn2eoa2s2elhPZiS+0MjFrXnwGATsLP5HmFlqulqqhFUPn8JcO1dlPYENCh411gsRiNFnOMpXQZLiC1PHNStyeopOby72CUWepETWkt9n3qyyA4o/HArXZQaZbRnrfu54ZnJ/VtNnolFSFQOl0lHmErOGMVs6W0u/lAGsFiQu4efV9FEeijq/he0bYvTnbwVcnGQko4SOeIei88kDZS3cuA6gtoui6OJpPVeNw01D5w89Brg4KhAtjK9s+UpSMXVTjJ5u6isvZJGYWXlpJyd3cnTzHK2zVG7VZlkeAi8U5/471yWjjscljnzgxmz7P0+Vhkj2iN+AgCi8/Xj3ld6o8UHASm6F0/spGtNgvSYU5sK47JPSJIU+4MqpVjoVnSHAJgsiNrPn7EXxclOo7wSezNJwpFDZagA4kueWZ9w==]
+2023-03-15 10:48:36.011  WARN 34996 --- [pool-3-thread-2] c.a.c.s.license.manage.LicenseManage     : license content to save not changed.
+2023-03-15 10:48:36.012  WARN 34996 --- [pool-3-thread-2] c.a.c.s.license.manage.LicenseManage     : license content not changed.
+2023-03-15 10:48:37.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:37.754  INFO 34996 --- [alarm-handler-1] c.a.a.a.hwsdk.alarm.AlarmReceiveHandler  : no reported alarm to handle.
+2023-03-15 10:48:38.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+2023-03-15 10:48:39.001  INFO 34996 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [5] interval tasks to execute
+^C
+[root@dag-access-node2 paas]# timed out waiting for input: auto-logout
+
+		
+		

@@ -1,0 +1,51 @@
+172查询结果  枪击 Model:D2150-10-L1-PV 正常 有问题的SDK泽鹏桌上的球机
+[
+        {
+            "alarmInName": "Input1000123456",
+            "alarmInCode": null,
+            "alarmInChanIndex": 201,
+            "switchType": 0,
+            "autoClearAlarmTime": 120
+        },
+        {
+            "alarmInName": "Input123456",
+            "alarmInCode": null,
+            "alarmInChanIndex": 202,
+            "switchType": 1,
+            "autoClearAlarmTime": 120
+        }
+    ]
+172设置参数
+[
+        {
+            "alarmInName": "测试1123123111",
+            "alarmInCode": null,
+            "alarmInChanIndex": 201,
+            "switchType": 0,
+            "autoClearAlarmTime": 120
+        },
+        {
+            "alarmInName": "Input2111221111",
+            "alarmInCode":null,
+            "alarmInChanIndex": 202,
+            "switchType": 1,
+            "autoClearAlarmTime": 120
+        }
+    ]
+172查询结果
+    "data": [
+        {
+            "alarmInName": "测试1123123111",
+            "alarmInCode": null,
+            "alarmInChanIndex": 201,
+            "switchType": 0,
+            "autoClearAlarmTime": 120
+        },
+        {
+            "alarmInName": "Input2111221111",
+            "alarmInCode": null,
+            "alarmInChanIndex": 202,
+            "switchType": 1,
+            "autoClearAlarmTime": 120
+        }
+    ]

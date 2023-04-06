@@ -1,0 +1,50 @@
+116.63.62.153 跳板机paas用户登录 paas/Image0@Huawei123
+
+
+ssh paas@192.168.1.131
+Image0@Huawei123   Allcam@2022
+1 切到root用户 Allcam@2022 -》切到gtsgsdba用户 su - gtsgsdba -s /bin/bash
+
+
+且
+连接高斯数据库
+zsql AVS/xAC_1QI57tgJRvEZ@192.168.4.204:15432
+zsql AVS/L^OO7gg9MA^Nia_z@192.168.4.204:15432
+
+select CHANNEL_ID,NAME,DEVICE_ID,STATUS from tbl_dmc_channel_info;
+
+32578 
+
+ssh -p 45266 root@i-2.gpushare.com
+
+
+---------------------------------
+dag登录
+139.9.169.83
+登录root 
+28181定位信息
+>>> Enter com.allcam.acs.avs.t28181.persistence.T28181DeviceSelectServiceImpl.get
+
+
+dmc登录
+116.63.99.39
+com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getAudioConfig
+
+ssh -p 45266 root@i-2.gpushare.com
+
+
+audio resp:JnaAudioStreamInfoResp: 
+{"resultCode":0,
+"resultDesc":"SUCCESS",
+"audioChannelId":101,
+"enAudioEncodeMode":19,
+"inputVolume":44,
+"outputVolume":49,
+"audioRate":4,
+"inputType":2,
+"sampleRate":0}
+
+
+
+
+

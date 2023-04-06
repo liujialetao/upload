@@ -1,0 +1,13 @@
+服务器地址：124.71.145.240
+[root@paas-core03 ~]# kubectl exec -it redisservice-server-0 -n kube-system -- /bin/sh
+sh-5.0$ cd /opt/redis/bin/
+sh-5.0$ ./redis-cli -h 172.18.0.9 -p 16379 -cipherdir /opt/redis/cipher
+172.18.0.9:16379> auth sysmgrrdb@admin@QUuRBjBGH_k5P98f
+OK
+172.18.0.9:16379> keys
+(error) ERR wrong number of arguments for 'keys' command
+172.18.0.9:16379> keys avs*
+ 1) "avs:dev_status:34020000001320000160"
+ 
+ 
+hgetall "avs:device-gateway"

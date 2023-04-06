@@ -1,0 +1,76 @@
+[root@paas-core03 ~]# kubectl exec -it redisservice-server-0 -n kube-system -- /                                                                                     bin/sh
+sh-5.0$ cd /opt/redis/bin/
+sh-5.0$ ./redis-cli -h 172.18.0.2 -p 16379 -cipherdir /opt/redis/cipher
+Could not connect to Redis at 172.18.0.2:16379: Connection refused
+not connected>
+not connected>
+not connected>
+not connected> exit
+sh-5.0$ ./redis-cli -h 172.18.0.9 -p 16379 -cipherdir /opt/redis/cipher
+172.18.0.9:16379> auth
+(error) ERR wrong number of arguments for 'auth' command
+172.18.0.9:16379> auth sysmgrrdb@admin@QUuRBjBGH_k5P98f
+OK
+172.18.0.9:16379> keys avs*
+ 1) "avs:device-extend:34020000001320000016"
+ 2) "avs:device-extend:34020000001320000036"
+ 3) "avs:device-extend:34020000001320000001"
+ 4) "avs:watch_point"
+ 5) "avs:plat_id"
+ 6) "avs_01:LIRKtJUxNNbpNSgVXsVP6EmABlx4ubvG:1678197492378:broadcast"
+ 7) "avs:device-extend:34020000001320000058"
+ 8) "avs:device-extend:34020000001320000101"
+ 9) "avs:device-stream:34020000001320000042"
+10) "avs:device-extend:34020000001320000028"
+11) "avs:device-extend:34020000001320000079"
+12) "avs:device-extend:34020000001320000148"
+13) "avs:device-stream:34020000001320000038"
+14) "avs:dev_status:34020000001320000112"
+15) "avs:device-extend:34020000001320000035"
+16) "avs:device-extend:34020000001320000064"
+17) "avs:dev_status:34020000001180000124"
+18) "avs:device-extend:34020000001320000081"
+19) "avs_01:DbCSdn2JsoX0m1kRnOpMu0yhcc9frrpf:1676986714041:broadcast"
+20) "avs_01:jpqAfpFTQzq9iPhjjSs4fNPx3xVueYZB:1676986701017:broadcast"
+21) "avs:cruise_track"
+22) "avs:device-extend:34020000001320000038"
+23) "avs:device-gateway"
+24) "avs:device-stream:34020000001320000041"
+25) "avs:device-extend:34020000001320000090"
+26) "avs:device-extend:34020000001320000063"
+27) "avs:cruise_no"
+28) "avs:dev_status:34020000001320000111"
+29) "avs:dev_status:34020000001320000108"
+30) "avs:dev_status:34020000001180000112"
+31) "avs:device-extend:34020000001320000040"
+32) "avs:device-extend:34020000001320000017"
+33) "avs:device-extend:34020000001320000111"
+34) "avs:device-stream:34020000001320000061"
+35) "avs_01:yID8sepCgdFrIWgV8pJBp4kINU8R2DIU:1676986698717:broadcast"
+36) "avs:device-extend:34020000001320000042"
+37) "avs_01:0aNpDZqeAolmIWBi3AbYO1ZitZNDsjDn:1678367117789:broadcast"
+38) "avs:device-extend:34020000001320000041"
+39) "avs:device-extend:34020000001320000108"
+40) "avs:dev_status:34020000001180000108"
+41) "avs:dev_status:34020000001180000111"
+42) "avs:device-extend:34020000001320000062"
+43) "avs_01:O5p6OjDfO6CH9XjqJH4OlRnjjJS0J2vA:1678436676659:broadcast"
+44) "avs:device-extend:34020000001320000112"
+172.18.0.9:16379> [root@paas-core03 ~]#
+
+
+
+172.18.0.9:16379> get "avs:device-gateway"
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+172.18.0.9:16379> hmget "avs:device-gateway"
+(error) ERR wrong number of arguments for 'hmget' command
+172.18.0.9:16379> hgetall "avs:device-gateway"
+1) "34020000001180000086"
+2) "{\"nodeId\":147,\"nodeGroup\":\"t28181_01\",\"nodeIp\":\"192.168.0.60\",\"rpcPort\":20270,\"httpPort\":9091}"
+3) "34020000001180000148"
+4) "{\"nodeId\":148,\"nodeGroup\":\"hwsdk-acreg_02\",\"nodeIp\":\"192.168.0.12\",\"rpcPort\":20280,\"httpPort\":9093}"
+5) "34020000001180000095"
+6) "{\"nodeId\":149,\"nodeGroup\":\"hwsdk-acreg_01\",\"nodeIp\":\"192.168.0.60\",\"rpcPort\":20280,\"httpPort\":9093}"
+7) "34020000001180000124"
+8) "{\"nodeId\":147,\"nodeGroup\":\"t28181_01\",\"nodeIp\":\"192.168.0.60\",\"rpcPort\":20270,\"httpPort\":9091}"
+172.18.0.9:16379>

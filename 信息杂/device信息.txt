@@ -1,0 +1,124 @@
+3402000000  domain_id
+
+34020000001180000086  device_id
+
+34020000001320000081 ptz audio camara_id
+
+
+在Linux77上 HWSDK
+34020000001180000095 device_id
+34020000001320000090   camara_id
+fix:前端页面参数get方法，返回值添加
+
+
+在Linux77上 one wife
+34020000001180000101 device_id
+34020000001320000101 camara_id
+
+
+
+
+network
+{
+    "code": 200,
+    "msg": "成功响应",
+    "data": {
+        "puIp": "172.16.22.128",
+        "puPort": null,
+        "gateway": "172.16.22.1",
+        "dns": null,
+        "netmask": "255.255.255.0",
+        "rtspEnable": null,
+        "rtspPort": null
+    }
+}
+
+{
+    "puIp": "172.16.22.128",
+    "puPort": "",
+    "gateway": "172.16.22.1",
+    "dns": "",
+    "netmask": "255.255.255.0",
+    "rtspEnable": "",
+    "rtspPort": ""
+}
+
+
+ptzinfo
+{
+    "code": 200,
+    "msg": "成功响应",
+    "data": {
+        "serialCode": "0",
+        "decoderAddress": 0,
+        "posNegDirectControl": 0,
+        "decoderType": null,
+        "serialName": null
+    }
+}
+
+
+audio
+{
+    "code": 200,
+    "msg": "成功响应",
+    "data": [
+        {
+            "audioName": "101",
+            "audioCode": "101",
+            "channelType": null,
+            "status": 0,
+            "audioIndex": null,
+            "audioParam": {
+                "sampleRate": 8000,
+                "pitch": null,
+                "channel": null,
+                "volume": null,
+                "sampleBits": null,
+                "inputType": 1,
+                "gain": null,
+                "dataFormat": 1
+            }
+        }
+    ]
+}
+
+
+alarmIn
+{
+    "code": 200,
+    "msg": "成功响应",
+    "data": [
+        {
+            "alarmInName": "测试1123123111",
+            "alarmInCode": null,
+            "alarmInChanIndex": 201,
+            "switchType": 0,
+            "autoClearAlarmTime": 120
+        },
+        {
+            "alarmInName": "Input2111221111",
+            "alarmInCode": null,
+            "alarmInChanIndex": 202,
+            "switchType": 1,
+            "autoClearAlarmTime": 120
+        }
+    ]
+}
+
+
+alarmOut
+{
+    "code": 200,
+    "msg": "成功响应",
+    "data": [
+        {
+            "alarmOutName": "测试out111",
+            "alarmOutCode": null,
+            "alarmOutChanIndex": 301,
+            "switchType": null,
+            "holdTime": 200,
+            "alarmOutMode": null
+        }
+    ]
+}

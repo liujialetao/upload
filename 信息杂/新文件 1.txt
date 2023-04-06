@@ -1,0 +1,68 @@
+get  networkConfig
+2023-03-16 20:11:24.172  INFO 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : >>> Enter com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getDeviceNetConfig
+2023-03-16 20:11:24.172 DEBUG 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : Parameters:[34020000001180000009]
+2023-03-16 20:11:24.174 DEBUG 13161 --- [http-nio-10100-exec-8] c.a.a.a.system.store.DeviceAccessStore   : get device access gateway, deviceId[34020000001180000009] and gateway[null]
+2023-03-16 20:11:24.174 ERROR 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : business handle error: error:299016
+2023-03-16 20:11:24.174 DEBUG 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-16 20:11:24.174 DEBUG 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : Return:[null]
+2023-03-16 20:11:24.174  INFO 13161 --- [http-nio-10100-exec-8] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getDeviceNetConfig
+2023-03-16 20:11:25.101  INFO 13161 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [7] interval tasks to execute
+2023-03-16 20:11:26.101  INFO 13161 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [7] interval tasks to execute
+2023-03-16 20:11:26.679 ERROR 13161 --- [RetryUtil_Thread] c.h.u.c.sdk.certificate.CertMainHandler  : register certificate failed
+
+java.io.IOException: {"code":"0126","message":"Failed to import the certificate.","cause":"The corresponding certificate file is not found in secret.","solution":"Check the secret content and try again."}
+        at com.huawei.us.sdk.common.httpclient.RetrofitClientUtil.callExecute(RetrofitClientUtil.java:124)
+        at com.huawei.us.cms.sdk.service.handler.CmsServiceHandler.registerCertificate(CmsServiceHandler.java:93)
+        at com.huawei.us.cms.sdk.certificate.CertMainHandler.registerServiceAndCertificate(CertMainHandler.java:110)
+        at com.huawei.us.cms.sdk.certificate.CertMainHandler.registerCertificate(CertMainHandler.java:149)
+        at com.huawei.us.cms.sdk.CmsSdkTool.lambda$registerCertificate$1(CmsSdkTool.java:85)
+        at com.huawei.us.sdk.common.utils.RetryUtil.lambda$getRetryCallable$2(RetryUtil.java:76)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:748)
+
+2023-03-16 20:11:27.101  INFO 13161 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [7] interval tasks to execute
+2023-03-16 20:11:28.101  INFO 13161 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [7] interval tasks to execute
+2023-03-16 20:11:29.101  INFO 13161 --- [interval-task-1] c.a.c.system.task.IntervalTaskManager    : there are [7] interval tasks to execute
+
+
+{
+    "code": 500,
+    "msg": "error:299016",
+    "data": null
+}
+
+
+get ptz  报错信息同networkConfig 
+
+
+
+
+2023-03-16 20:15:48.123  INFO 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : >>> Enter com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getSerialConfig
+2023-03-16 20:15:48.123 DEBUG 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : Parameters:[34020000001180000009]
+2023-03-16 20:15:48.124 DEBUG 13161 --- [http-nio-10100-exec-2] c.a.a.a.system.store.DeviceAccessStore   : get device access gateway, deviceId[34020000001180000009] and gateway[null]
+2023-03-16 20:15:48.124 ERROR 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : business handle error: error:299016
+2023-03-16 20:15:48.124 DEBUG 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-16 20:15:48.124 DEBUG 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : Return:[null]
+2023-03-16 20:15:48.124  INFO 13161 --- [http-nio-10100-exec-2] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getSerialConfig
+
+
+2023-03-16 20:15:57.664 DEBUG 13161 --- [http-nio-10100-exec-3] c.a.c.system.log.MethodAspectHelper      : Parameters:[34020000001180000009]
+2023-03-16 20:15:57.665 DEBUG 13161 --- [http-nio-10100-exec-3] c.a.a.a.system.store.DeviceAccessStore   : get device access gateway, deviceId[34020000001180000009] and gateway[null]
+2023-03-16 20:15:57.665 ERROR 13161 --- [http-nio-10100-exec-3] c.a.c.system.log.MethodAspectHelper      : business handle error: error:299016
+2023-03-16 20:15:57.665  WARN 13161 --- [http-nio-10100-exec-3] com.allcam.common.utils.AspectHelper     : getReturnObject class newInstance fail: java.util.List
+2023-03-16 20:15:57.665 DEBUG 13161 --- [http-nio-10100-exec-3] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-16 20:15:57.665 DEBUG 13161 --- [http-nio-10100-exec-3] c.a.c.system.log.MethodAspectHelper      : Return:[null]
+2023-03-16 20:15:57.665  INFO 13161 --- [http-nio-10100-exec-3] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getAlarmInConfig
+
+
+2023-03-16 20:16:06.768  INFO 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : >>> Enter com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getAlarmOutConfig
+2023-03-16 20:16:06.768 DEBUG 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : Parameters:[34020000001180000009]
+2023-03-16 20:16:06.770 DEBUG 13161 --- [http-nio-10100-exec-4] c.a.a.a.system.store.DeviceAccessStore   : get device access gateway, deviceId[34020000001180000009] and gateway[null]
+2023-03-16 20:16:06.770 ERROR 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : business handle error: error:299016
+2023-03-16 20:16:06.770  WARN 13161 --- [http-nio-10100-exec-4] com.allcam.common.utils.AspectHelper     : getReturnObject class newInstance fail: java.util.List
+2023-03-16 20:16:06.770 DEBUG 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : method not request response mode, cannot record log.
+2023-03-16 20:16:06.770 DEBUG 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : Return:[null]
+2023-03-16 20:16:06.770  INFO 13161 --- [http-nio-10100-exec-4] c.a.c.system.log.MethodAspectHelper      : <<< Exit com.allcam.avs.api.Puconfig.NewDeviceConfigApiService.getAlarmOutConfig
+
